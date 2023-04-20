@@ -41,7 +41,7 @@ This is an advanced option and we recommend you to go this path only if you have
 # Download Course Material
 All the course slides and reference material will be made available on github. You can clone the repository on your local machine. 
 
-`git clone git@github.com:ReLambda/k8s-101.git`
+`git clone git@github.com:ReLambda/k8s-101.git ~/k8s-101`
 
 # Docker login [Optional]
 Dockerhub is a public container registry where you can push your docker images. A container registry is for docker images what Github is for code. You don't need a Dockerhub account to follow this course as we have already pushed the required images to Dockerhub.
