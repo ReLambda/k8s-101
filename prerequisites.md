@@ -4,7 +4,7 @@ There are multiple ways to install kubernetes on your local machine. You can cho
 2. Minikube
 3. Cloud Provider (You will need an account with the cloud provider)
 
-> You don't need to setup all 3, just choose the one that is best for you.
+> You don't need to set up all 3, just choose the one that is best for you.
 
 ## 1. Docker Desktop
 1. From the Docker Dashboard, select the Settings.
@@ -39,10 +39,12 @@ minikube start
 This is an advanced option and we recommend you to go this path only if you have done this before, else choose option 1 or 2. 
 
 # Download Course Material
-`git clone ___`
+All the course slides and reference material will be made available on github. You can clone the repository on your local machine. 
+
+`git clone git@github.com:ReLambda/k8s-101.git`
 
 # Docker login [Optional]
-Dockerhub is a public container registry where you can push your docker images. A container registry is for docker images what Github is for code. You don't need a dockerhub account to follow this course as we have already pushed the required images to dockerhub, and you can use them.
+Dockerhub is a public container registry where you can push your docker images. A container registry is for docker images what Github is for code. You don't need a Dockerhub account to follow this course as we have already pushed the required images to Dockerhub.
 
 ```
 > docker login -u {USERNAME}
@@ -52,7 +54,7 @@ Login Succeeded
 ```
 
 # Verification
-You can verify the local kubernete installation by running the following commands
+You can verify the local kubernete installation by running a few kubectl commands. **kubectl** is a command-line tool that is used to interact with Kubernetes clusters. It is used to deploy, manage and inspect applications on the cluster. 
 
 1. `kubectl version`  
 In the output you must ensure that both _Client Version_ and _Server Version_ blocks are present and don't give any error.
@@ -67,13 +69,14 @@ In the output you must ensure that both _Client Version_ and _Server Version_ bl
     ```
 
 2. `kubectl get nodes`
-    This will list all the nodes attached to your cluster. There should be at-least 1 node in your cluster where you can deploy the applications. In a typical production cluster, this command will have multiple nodes in the output.
+    This command will list all the nodes attached to your cluster. There should be at-least 1 node in your cluster where you can deploy the applications. In a typical production cluster, this command will have multiple nodes in the output.
     ```bash
     kubectl get nodes
     NAME         STATUS   ROLES                  AGE     VERSION
     k8s-1.23.1   Ready    control-plane,master   9m28s   v1.23.1
     ```
 3. `kubectl get pods -A`
+    This command will list all the running pods in your cluster. In a fresh cluster, even if you have not deployed any application, there will be a bunch of pods running. These are required by Kubernetes and you don't really need to be worried about it as long as their status is **Running**. 
     ```bash
     kubectl get pods -A
     NAMESPACE     NAME                                 READY   STATUS    RESTARTS        AGE
