@@ -1,10 +1,9 @@
-
 # 00 Docker recap
 - Switch to sample-app directory  
 `cd ~/k8s-101/sample-app`
 
 - Build docker image  
-`docker build -t relambda/sample-app:1.0 .`
+`docker build -t relambda/sample-app:v1.0 .`
     <details>
         <summary>output</summary>
 
@@ -32,7 +31,12 @@
     ```
 
     </details>
+
 - Push image to dockerhub  
+`docker push relambda/sample-app:v1.0`
+
+- Run docker container  
+`docker run -p 8001:8001 relambda/sample-app:v1.0` 
 
 
 # 01 K8s rapid mode
