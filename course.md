@@ -179,3 +179,26 @@ kubectl delete service echo-server
 7. Discuss `RollingUpdate` and `Recreate` deployment strategies.
 
 # 05 Kubernetes Service
+0. Change working directory
+    ```sh
+    cd ~/k8s-101/manifests/service 
+    ```
+
+1. Deploy all manifests in the folder
+    ```sh
+    kubectl apply -f .
+    .. deployment.apps/dep-nginx created
+    .. deployment.apps/dep-echo-server created
+    .. service/svc-nginx created
+    .. service/svc-echo-server created
+    ```
+
+2. Create a tmp pod to access the service from inside the cluster
+    ```sh
+    kubectl run tmp-pod --image=nginx:alpine --rm -it -- sh
+    .. If you don't see a command prompt, try pressing enter.
+    .. # curl svc-nginx
+    .. # curl svc-echo-server
+    ```
+
+3. LoadBalancer demo
