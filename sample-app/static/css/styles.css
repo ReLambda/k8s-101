@@ -1,0 +1,23 @@
+/* static/css/styles.css */
+
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    color: #007bff;
+    transition: color 0.3s;
+}
+
+.card:hover .card-title {
+    color: #0056b3;
+}

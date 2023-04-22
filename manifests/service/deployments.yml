@@ -1,0 +1,54 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-nginx
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 10%
+      maxUnavailable: 20%
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.24
+        ports:
+        - containerPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-echo-server
+  labels:
+    app: echo-server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: echo-server
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 10%
+      maxUnavailable: 20%
+  template:
+    metadata:
+      labels:
+        app: echo-server
+    spec:
+      containers:
+      - name: echo-server
+        image: ealen/echo-server
+        ports:
+        - containerPort: 80
